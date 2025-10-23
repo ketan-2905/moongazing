@@ -163,11 +163,11 @@ const SectionNavbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <header className="fixed top-0 left-0 w-full z-50 py-4 bg-black/20">
+    <header className="fixed top-0 left-0 w-full z-50  bg-black/20">
       <div className="max-w-7xl mx-auto flex justify-between items-center px-4">
         {/* Logo */}
         <div className="flex items-center gap-3 text-2xl font-light tracking-[0.25em]">
-          <Image src="/logo/nova_logo.png" alt="DJS NOVA" width={50} height={50} />
+          <Image src="/logo/nova_logo.png" alt="DJS NOVA" width={80} height={80} />
         </div>
 
         {/* Desktop Nav */}

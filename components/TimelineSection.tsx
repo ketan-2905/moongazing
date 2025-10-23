@@ -16,7 +16,9 @@ const TimelineSection = () => {
       className="min-h-screen pt-20 
   bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.12)_0%,rgba(0,0,0,1)_75%),linear-gradient(to_bottom,rgba(0,0,0,1)_0%,rgba(0,0,0,0)_15%,rgba(0,0,0,0)_85%,rgba(0,0,0,1)_100%)]
   bg-cover bg-center sm:bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.1)_0%,rgba(0,0,0,1)_80%),linear-gradient(to_bottom,rgba(0,0,0,1)_0%,rgba(0,0,0,0)_10%,rgba(0,0,0,0)_90%,rgba(0,0,0,1)_100%)] overflow-x-hidden"
-    >
+    ><h2 className=" text-3xl md:text-5xl font-semibold mb-12 tracking-[0.05em] text-center">
+        Time Line
+      </h2>
       <ScrollTimeline events={events2} />
     </section>
   );

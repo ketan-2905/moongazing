@@ -27,6 +27,9 @@ const Carousel: React.FC<CarouselProps> = ({ items }) => {
     } else {
       video.pause();                // pause others
     }
+    if (expanded) {
+      video.pause()       // reset to start
+    }
   });
 }, [current]);
 
