@@ -45,7 +45,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${myLocalFontTwo.className}  antialiased`}>
         {/* <div className="relative bg-[url('/bg/space_bg.gif')] bg-auto bg-repeat bg-left-top overflow-hidden px-8"> */}
-        <IntroOverlay />
+        {/* <IntroOverlay /> */}
         <Navbar />
         {children}
         {/* </div> */}
