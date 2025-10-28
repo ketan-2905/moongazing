@@ -47,7 +47,7 @@ export default function RootLayout({
         {/* <div className="relative bg-[url('/bg/space_bg.gif')] bg-auto bg-repeat bg-left-top overflow-hidden px-8"> */}
         {/* <IntroOverlay /> */}
         <Navbar />
-        <div className="mt-[46px]">
+        <div className="md:mt-[46px]">
           {children}
         </div>
         {/* </div> */}
