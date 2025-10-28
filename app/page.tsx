@@ -3,7 +3,6 @@ import Carousel from "@/components/Carousel";
 import FAQ from "@/components/FAQs";
 import Footer from "@/components/Footer";
 import HeroicSection from "@/components/HeroicSection";
-import ScrollTimeline from "@/components/ScrollTimeline";
 import TimelineSection from "@/components/TimelineSection";
 
 export default function Astrophotography() {

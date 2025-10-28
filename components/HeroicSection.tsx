@@ -1,12 +1,22 @@
 import React from "react";
 import Button from "./Button";
+import Image from "next/image";
 
 const HeroicSection = () => {
   return (
-    <section
-      id="heroic"
-      className="h-screen w-full bg-[url('/event/moon.jpg')] bg-cover bg-center bg-no-repeat relative flex items-center justify-center overflow-x-hidden"
-    >
+<section
+  id="heroic"
+  className="h-screen w-full relative flex items-center justify-center overflow-x-hidden"
+>
+  <Image
+    src="/event/moon.jpg"
+    alt="moon background"
+    fill
+    priority
+    quality={85}
+    sizes="100vw"
+    className="object-cover object-center -z-10"
+  />
       {/* Overlay for better text visibility */}
       <div className="absolute inset-0 bg-black/50"></div>
 

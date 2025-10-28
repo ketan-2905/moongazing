@@ -78,7 +78,7 @@ const Carousel: React.FC<CarouselProps> = ({ items }) => {
                 <img
                   src={item.src}
                   alt={item.alt || ""}
-                  className="w-64 h-40 md:w-[600px] md:h-[450px] object-cover rounded-xl shadow-lg"
+                  className="w-75 h-65 md:w-[600px] md:h-[450px] object-cover rounded-xl shadow-lg"
                 />
               ) : (
                 <video
@@ -86,7 +86,7 @@ const Carousel: React.FC<CarouselProps> = ({ items }) => {
                     videoRefs.current[index] = el; 
                   }}
                   src={item.src}
-                  className="w-64 h-40 md:w-[600px] md:h-[450px] object-cover rounded-xl shadow-lg"
+                  className="w-75 h-65 md:w-[600px] md:h-[450px] object-cover rounded-xl shadow-lg"
                   loop
                 />
               )}
@@ -129,7 +129,7 @@ const Carousel: React.FC<CarouselProps> = ({ items }) => {
               <img
                 src={expanded.src}
                 alt={expanded.alt || ""}
-                className="max-w-full max-h-full rounded-lg shadow-2xl"
+                className="w-full max-w-4xl max-h-full rounded-lg shadow-2xl"
               />
             ) : (
               <video

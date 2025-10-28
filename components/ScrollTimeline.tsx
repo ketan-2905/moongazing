@@ -1,6 +1,78 @@
+// "use client";
+
+// import { motion, useScroll, useTransform } from "framer-motion";
+// import React, { useRef } from "react";
+
+// type TimelineEvent = {
+//   time: string;
+//   title: string;
+// };
+
+// interface ScrollTimelineProps {
+//   events: TimelineEvent[];
+// }
+
+// const ScrollTimeline: React.FC<ScrollTimelineProps> = ({ events }) => {
+//   const ref = useRef<HTMLDivElement>(null);
+//   const { scrollYProgress } = useScroll({
+//     target: ref,
+//     offset: ["start center", "end end"],
+//   });
+
+//   const lineHeight = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
+
+//   return (
+//     <div ref={ref} className="relative w-full flex justify-center py-20 overflow-x-hidden">
+//       {/* Center line background */}
+//       <div className="absolute top-0 w-1 bg-gray-300 h-full rounded-full" />
+
+//       {/* Animated filled line */}
+//       <motion.div
+//         className="absolute top-0 w-1 bg-gradient-to-b from-blue-500 to-cyan-400 rounded-full"
+//         style={{ height: lineHeight }}
+//       />
+
+//       <div className="w-full max-w-4xl md:max-w-3xl md:space-y-20 overflow-x-hidden">
+//         {events.map((event, i) => (
+//           <div
+//             key={i}
+//             className={`relative flex items-center ${
+//               i % 2 === 0
+//                 ? "md:justify-start justify-end "
+//                 : "md:justify-end justify-start"
+//             }`}
+//           >
+//             <div
+//               className={` p-4 w-80 ${
+//                 i % 2 === 0 ? " text-right" : "text-left"
+//               }`}
+//             >
+//               <h3 className="font-semibold  text-xl  md:text-2xl text-[#DE9841]">
+//                 {event.time}
+//               </h3>
+//               <p
+//                 className={`text-lg md:text-3xl text-gray-600 dark:text-gray-300 md:w-full  ${
+//                   i % 2 === 0 ? "" : "w-[147px]"
+//                 }`}
+//               >
+//                 {event.title}
+//               </p>
+//             </div>
+
+//             <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-[#aeaeae]  rounded-full z-10" />
+//           </div>
+//         ))}
+//       </div>
+
+//     </div>
+//   );
+// };
+
+// export default ScrollTimeline;
+
 "use client";
 
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform, useInView } from "framer-motion";
 import React, { useRef } from "react";
 
 type TimelineEvent = {
@@ -21,56 +93,110 @@ const ScrollTimeline: React.FC<ScrollTimelineProps> = ({ events }) => {
 
   const lineHeight = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
 
+  // ✅ Create stable refs for each event
+  const eventRefs = React.useMemo(
+    () => events.map(() => React.createRef<HTMLDivElement>()),
+    [events]
+  );
+
   return (
-    <div ref={ref} className="relative w-full flex justify-center py-20 overflow-x-hidden">
+    <div
+      ref={ref}
+      className="relative w-full flex justify-center py-20 overflow-x-hidden"
+      style={{
+        transform: "translateZ(0)", // ✅ force GPU layer for smoother scroll
+        willChange: "transform",
+      }}
+    >
       {/* Center line background */}
       <div className="absolute top-0 w-1 bg-gray-300 h-full rounded-full" />
 
       {/* Animated filled line */}
       <motion.div
         className="absolute top-0 w-1 bg-gradient-to-b from-blue-500 to-cyan-400 rounded-full"
-        style={{ height: lineHeight }}
+        style={{ height: lineHeight, willChange: "height" }}
       />
 
-      <div className="w-full max-w-4xl md:max-w-3xl md:space-y-20 overflow-x-hidden">
-        {events.map((event, i) => (
-          <div
-            key={i}
-            className={`relative flex items-center ${
-              i % 2 === 0
-                ? "md:justify-start justify-end "
-                : "md:justify-end justify-start"
-            }`}
-          >
+      <div className="w-full max-w-4xl md:max-w-3xl md:space-y-20 overflow-x-hidden overflow-y-hidden">
+        {events.map((event, i) => {
+          const eventRef = eventRefs[i];
+          const isInView = useInView(eventRef, {
+            margin: "-100px",
+            amount: 0.35, // ✅ slightly reduced triggers
+            once: true, // ✅ animate only first time visible
+          });
+
+          return (
             <div
-              className={` p-4 w-80 ${
-                i % 2 === 0 ? " text-right" : "text-left"
+              key={i}
+              ref={eventRef}
+              className={`relative flex items-center ${
+                i % 2 === 0
+                  ? "md:justify-start justify-end"
+                  : "md:justify-end justify-start"
               }`}
+              style={{
+                backfaceVisibility: "hidden", // ✅ prevents flicker during scale
+                perspective: 1000,
+              }}
             >
-              <h3 className="font-semibold  text-xl  md:text-2xl text-[#DE9841]">
-                {event.time}
-              </h3>
-              <p
-                className={`text-lg md:text-3xl text-gray-600 dark:text-gray-300 md:w-full  ${
-                  i % 2 === 0 ? "" : "w-[147px]"
+              <motion.div
+                initial={{ scale: 0.85, opacity: 0.6 }}
+                style={{ willChange: "transform, opacity" }}
+                animate={
+                  isInView
+                    ? { scale: 1, opacity: 1 }
+                    : { scale: 0.9, opacity: 0.6 }
+                }
+                transition={{
+                  type: "spring",
+                  stiffness: 70,
+                  damping: 15,
+                  mass: 0.6,
+                }}
+                className={`p-4 w-80 ${
+                  i % 2 === 0 ? "text-right" : "text-left"
                 }`}
               >
-                {event.title}
-              </p>
+                <h3 className="font-semibold text-xl md:text-2xl text-[#DE9841]">
+                  {event.time}
+                </h3>
+                <p
+                  className={`text-lg md:text-3xl text-gray-600 dark:text-gray-300 md:w-full ${
+                    i % 2 === 0 ? "" : "w-[147px]"
+                  }`}
+                >
+                  {event.title}
+                </p>
+              </motion.div>
+
+              {/* Animated Dot */}
+              <motion.div
+                style={{ willChange: "transform, opacity" }}
+                initial={{ scale: 0.7, opacity: 0.5 }}
+                animate={
+                  isInView
+                    ? { scale: 1.3, opacity: 1 }
+                    : { scale: 0.7, opacity: 0.5 }
+                }
+                transition={{
+                  type: "spring",
+                  stiffness: 80,
+                  damping: 14,
+                  mass: 0.5,
+                }}
+                className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-[#aeaeae] rounded-full z-10"
+              />
             </div>
-
-            <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-[#aeaeae]  rounded-full z-10" />
-          </div>
-        ))}
+          );
+        })}
       </div>
-
-
-
     </div>
   );
 };
 
 export default ScrollTimeline;
+
 
 // "use client";
 
