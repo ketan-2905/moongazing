@@ -3,6 +3,7 @@ import Carousel from "@/components/Carousel";
 import FAQ from "@/components/FAQs";
 import Footer from "@/components/Footer";
 import HeroicSection from "@/components/HeroicSection";
+import SponsoredCard from "@/components/SponsoredCard";
 import TimelineSection from "@/components/TimelineSection";
 
 export default function Astrophotography() {
@@ -49,7 +50,7 @@ export default function Astrophotography() {
       question: "Is there an age restriction?",
       answer: "No, it's open to all age groups interested in astronomy.",
     },
-     {
+    {
       question: "Do I need to register beforehand?",
       answer:
         "Yes, pre-registration is required due to limited seats for each time slot.",
@@ -67,9 +68,34 @@ export default function Astrophotography() {
     { type: "image", src: "astro3.png", alt: "Third" },
   ];
 
+  const sponsorData = {
+    logoSrc: "/Sponsors/genz_adda_logo.png",
+    logoAlt: "Genze Adda Logo",
+    locations: [
+      {
+        locationText: "Genze Adda Andheri West (Main Branch)",
+        mapLinkUrl: "https://share.google/BeIhwjoxIM2TYmQYG",
+      },
+      {
+        locationText: "Genze Adda Vile Parle West (Mithibai college Branch)",
+        mapLinkUrl: "https://share.google/i8vnLDW00d8i3lsGK",
+      },
+      {
+        locationText: "Genze Adda Juhu West (Juhu Branch)",
+        mapLinkUrl: "https://share.google/z2Wu5jYEbBzfWfv6l",
+      },
+    ],
+  };
+
   return (
     <>
       <HeroicSection />
+
+      <SponsoredCard
+        logoSrc={sponsorData.logoSrc}
+        logoAlt={sponsorData.logoAlt}
+        locations={sponsorData.locations}
+      />
 
       <TimelineSection />
 
