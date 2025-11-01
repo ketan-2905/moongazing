@@ -606,7 +606,7 @@ const Navbar = () => {
     { name: "Heroic", href: "#heroic" },
     { name: "Timeline", href: "#timeline" },
     { name: "FAQs", href: "#faqs" },
-    { name: "Past Glimpse", href: "#past-glimpse" },
+    { name: "Past glimpses", href: "#past-glimpse" },
   ];
 
   const toggleMenu = () => setMenuOpen((prev) => !prev);
