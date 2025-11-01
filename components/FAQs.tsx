@@ -66,7 +66,7 @@ const FAQ: React.FC<FAQProps> = ({ faqs }) => {
                   exit={{ scaleY: 0, opacity: 0 }}
                   transition={{ duration: 0.25, ease: "easeOut" }}
                   style={{ originY: 0 }} // expand from top
-                  className="text-start md:py-2 px-4 md:px-6 pb-4 md:pb-2 text-gray-400 text-base md:text-lg leading-relaxed border-t border-gray-700 overflow-hidden bg-gray-800/60 backdrop-blur-md shadow-md rounded-b-2xl"
+                  className="text-start md:py-2 px-4 md:px-6 pb-4 md:pb-2 text-[#d0d0d0] text-base md:text-lg leading-relaxed border-t border-gray-700 overflow-hidden bg-gray-800/60 backdrop-blur-md shadow-md rounded-b-2xl"
                 >
                   {faq.answer}
                 </motion.div>

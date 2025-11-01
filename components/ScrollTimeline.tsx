@@ -154,16 +154,18 @@ const ScrollTimeline: React.FC<ScrollTimelineProps> = ({ events }) => {
                   damping: 15,
                   mass: 0.6,
                 }}
-                className={`p-4 w-80 ${
-                  i % 2 === 0 ? "text-right" : "text-left"
+                className={`p-2 py-4 md:p-4 w-42 md:w-80 ${
+                  i % 2 === 0 ? "flex flex-col justify-end items-end" : "text-left"
                 }`}
               >
-                <h3 className="font-semibold text-xl md:text-2xl text-[#DE9841]">
+                <h3 className={`font-semibold text-[18px] md:text-2xl text-[#DE9841] w-full ${
+                    i % 2 === 0 ? "text-left md:text-right" : "text-right md:text-left"
+                  }`}>
                   {event.time}
                 </h3>
                 <p
-                  className={`text-lg md:text-3xl text-gray-600 dark:text-gray-300 md:w-full ${
-                    i % 2 === 0 ? "" : "w-[147px]"
+                  className={`text-[16px] md:text-3xl text-gray-600 dark:text-gray-300 w-[147px] md:w-full ${
+                    i % 2 === 0 ? "text-left md:text-right" : "text-right md:text-left"
                   }`}
                 >
                   {event.title}
