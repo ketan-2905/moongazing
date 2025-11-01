@@ -1,4 +1,3 @@
-import Button from "@/components/Button";
 import Carousel from "@/components/Carousel";
 import FAQ from "@/components/FAQs";
 import Footer from "@/components/Footer";
@@ -7,65 +6,52 @@ import SponsoredCard from "@/components/SponsoredCard";
 import TimelineSection from "@/components/TimelineSection";
 
 export default function Astrophotography() {
-  const faqs = [
-    {
-      question: "What is the event about?",
-      answer:
-        "The event explores moon gazing sessions with detailed explanations from astronomers.",
-    },
-    {
-      question: "Do I need to register beforehand?",
-      answer:
-        "Yes, pre-registration is required due to limited seats for each time slot.",
-    },
-    {
-      question: "Is there an age restriction?",
-      answer: "No, it's open to all age groups interested in astronomy.",
-    },
-    {
-      question: "What is the event about?",
-      answer:
-        "The event explores moon gazing sessions with detailed explanations from astronomers.",
-    },
-    {
-      question: "Do I need to register beforehand?",
-      answer:
-        "Yes, pre-registration is required due to limited seats for each time slot.",
-    },
-    {
-      question: "Is there an age restriction?",
-      answer: "No, it's open to all age groups interested in astronomy.",
-    },
-    {
-      question: "What is the event about?",
-      answer:
-        "The event explores moon gazing sessions with detailed explanations from astronomers.",
-    },
-    {
-      question: "Do I need to register beforehand?",
-      answer:
-        "Yes, pre-registration is required due to limited seats for each time slot.",
-    },
-    {
-      question: "Is there an age restriction?",
-      answer: "No, it's open to all age groups interested in astronomy.",
-    },
-    {
-      question: "Do I need to register beforehand?",
-      answer:
-        "Yes, pre-registration is required due to limited seats for each time slot.",
-    },
-    {
-      question: "Is there an age restriction?",
-      answer: "No, it's open to all age groups interested in astronomy.",
-    },
-  ];
+const faqs = [
+  {
+    question: "Would we get attendance for the next day?",
+    answer: "Don't worry, the next day is a public holiday, so college will be closed, so your no study gets wasted.",
+  },
+  {
+    question: "Why should you not miss this?",
+    answer: "It's an overnight event, no hassle at all, like no brain to be used, we will have games and movie screenings, and a night to remember.",
+  },
+  {
+    question: "Would dinner be provided?",
+    answer: "We are providing Jain and non-Jain food, both.",
+  },
+  {
+    question: "Are we allowed to bring our own food?",
+    answer: "Yes, you are absolutely free to bring your own food.",
+  },
+  {
+    question: "Would we be allowed to go home at night?",
+    answer: "No, the gates of the college will close at 8pm and open at 6am, so you can only leave college premises after 6, but we will show sun spots which will be an experience of a lifetime which should not be wasted.",
+  },
+  {
+    question: "Would there be any arrangements if I want to sleep?",
+    answer: "Yes, we will have mattresses in a classroom, different for boys and different for girls.",
+  },
+  {
+    question: "Can we play our own games?",
+    answer: "Yes, you are allowed to bring your own games.",
+  },
+  {
+    question: "Are we allowed to bring musical instruments?",
+    answer: "We are in desperate need of a jamming session, so if you know, then please heal us too.",
+  },
+  {
+    question: "Are friends from other colleges allowed?",
+    answer: "No, only DJ Sanghvi students are allowed.",
+  },
+];
+
+
 
   const media = [
-    { type: "image", src: "/astro1.png", alt: "First" },
-    { type: "image", src: "astro2.png", alt: "Second" },
-    { type: "video", src: "/event/stargazing.mp4", alt: "Video First" },
-    { type: "image", src: "astro3.png", alt: "Third" },
+    { type: "image", src: "/past_glimps/MoonGazingCover.jpg", alt: "First" },
+    { type: "image", src: "/past_glimps/MoongazingMoon.jpg", alt: "Second" },
+    { type: "video", src: "/past_glimps/PastGlimpse1.mp4", alt: "Video First" },
+    { type: "image", src: "/past_glimps/MoonGazingSetup.jpg", alt: "Third" },
   ];
 
   const sponsorData = {
@@ -73,16 +59,12 @@ export default function Astrophotography() {
     logoAlt: "Genze Adda Logo",
     locations: [
       {
-        locationText: "Genze Adda Andheri West (Main Branch)",
+        locationText: "Veera desai Rd, Azad Nagar, Andheri West",
         mapLinkUrl: "https://share.google/BeIhwjoxIM2TYmQYG",
       },
       {
-        locationText: "Genze Adda Vile Parle West (Mithibai college Branch)",
+        locationText: "Genze Adda Mithibai college, Vile Parle West",
         mapLinkUrl: "https://share.google/i8vnLDW00d8i3lsGK",
-      },
-      {
-        locationText: "Genze Adda Juhu West (Juhu Branch)",
-        mapLinkUrl: "https://share.google/z2Wu5jYEbBzfWfv6l",
       },
     ],
   };

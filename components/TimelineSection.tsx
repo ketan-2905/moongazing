@@ -24,12 +24,11 @@ const TimelineSection = () => {
   { time: "12:00 AM - 02:00 AM", title: "Late Night Discussion on Astronomy Theories" },
   { time: "02:00 AM - 04:00 AM", title: "Interactive Astronomy Games and Simulations" },
   { time: "04:00 AM - 06:00 AM", title: "Screening of GSAT Launch" },
-  { time: "06:00 AM - 08:00 AM", title: "Cleaning and Disperse" },
 ];
 
 
   return (
-    <section
+     <section
       id="timeline"
       className="min-h-screen pt-20 
   bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.12)_0%,rgba(0,0,0,1)_75%),linear-gradient(to_bottom,rgba(0,0,0,1)_0%,rgba(0,0,0,0)_15%,rgba(0,0,0,0)_85%,rgba(0,0,0,1)_100%)]

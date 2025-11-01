@@ -48,7 +48,7 @@ const FAQ: React.FC<FAQProps> = ({ faqs }) => {
                 onClick={() => toggleFAQ(i)}
                 className="w-full flex justify-between items-center p-2 md:p-4 text-left"
               >
-                <span className="text-lg md:text-xl font-medium  text-[#DE9841]">
+                <span className="text-lg md:text-xl font-medium  text-[#DE9841] tracking-[0.02em]">
                   {faq.question}
                 </span>
                 {openIndex === i ? (
@@ -66,7 +66,7 @@ const FAQ: React.FC<FAQProps> = ({ faqs }) => {
                   exit={{ scaleY: 0, opacity: 0 }}
                   transition={{ duration: 0.25, ease: "easeOut" }}
                   style={{ originY: 0 }} // expand from top
-                  className="text-start md:py-2 px-4 md:px-6 pb-4 md:pb-2 text-[#d0d0d0] text-base md:text-lg leading-relaxed border-t border-gray-700 overflow-hidden bg-gray-800/60 backdrop-blur-md shadow-md rounded-b-2xl"
+                  className="text-start md:py-2 px-4 md:px-6 py-2 md:pb-2 text-[#d0d0d0] text-base md:text-lg  border-t border-gray-700 overflow-hidden bg-gray-800/60 backdrop-blur-md shadow-md rounded-b-2xl tracking-[0.01em]"
                 >
                   {faq.answer}
                 </motion.div>

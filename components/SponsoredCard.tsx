@@ -40,7 +40,7 @@ const SponsoredCard: React.FC<SponsoredCard> = ({
 
       {/* 3. Outlet Location and Map Link */}
       <div className="text-center w-full px-2 tracking-wide">
-        <h3 className="text-lg sm:text-xl font-bold mb-2">Outlet Location</h3>
+        <h3 className="text-lg sm:text-2xl font-bold mb-2 tracking-wider">Outlet Location</h3>
 
         <div className="flex flex-col sm:flex-row sm:flex-wrap justify-center items-center gap-2 sm:gap-3">
           {locations.map((location, index) => (
@@ -49,7 +49,7 @@ const SponsoredCard: React.FC<SponsoredCard> = ({
               href={location.mapLinkUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center text-sm sm:text-base font-medium hover:text-blue-500 text-white transition duration-150 sm:border-b-0 sm:border-r sm:pr-2 border-white last:border-none"
+              className="inline-flex items-center justify-center text-md sm:text-lg font-medium hover:text-[#f7e452] text-white transition duration-150 sm:border-b-0 sm:border-r sm:pr-2 border-white last:border-none"
             >
               {location.locationText}
             </Link>

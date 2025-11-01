@@ -51,6 +51,7 @@
 import React from "react";
 import Button from "./Button";
 import Image from "next/image";
+import Link from "next/link";
 
 const HeroicSection = () => {
   return (
@@ -73,7 +74,7 @@ const HeroicSection = () => {
       {/* Fade-to-black at bottom to blend with next section */}
       <div className="absolute bottom-0 left-0 w-full h-40 bg-gradient-to-b from-transparent to-black"></div>
 
-      <div className="relative z-10 text-center text-white px-2 md:px-4 flex flex-col items-center gap-4 md:gap-8">
+      <div className="relative z-10 text-center text-white px-2 md:px-4 flex flex-col items-center gap-2 md:gap-8">
         {/* Tagline */}
         <p className="text-lg md:text-2xl font-light mb-2 tracking-[0.05em] text-[#d0d0d0]">
           Witness the magic of the night sky.
@@ -106,7 +107,7 @@ const HeroicSection = () => {
         </div>
 
         {/* Call to Action Button */}
-        <Button />
+        <Link target="blank" href="https://docs.google.com/forms/d/e/1FAIpQLSex9aBBMwl8tXfNoRXqOnsYnMhBkoL1LbYVV5LgUTAtYRFw_Q/viewform" className=""><Button /></Link>
       </div>
     </section>
   );
