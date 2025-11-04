@@ -63,8 +63,12 @@ const faqs = [
         mapLinkUrl: "https://share.google/BeIhwjoxIM2TYmQYG",
       },
       {
-        locationText: "Genze Adda Mithibai college, Vile Parle West",
+        locationText: "Genz Adda Mithibai college, Vile Parle West",
         mapLinkUrl: "https://share.google/i8vnLDW00d8i3lsGK",
+      },
+            {
+        locationText: "Next to Tiwari Brothers, JVPD Juhu West",
+        mapLinkUrl: "https://maps.app.goo.gl/oMGznAo89Q2H3gPi7",
       },
     ],
   };
