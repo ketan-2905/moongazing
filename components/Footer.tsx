@@ -48,9 +48,9 @@ const Footer = () => {
         href="https://docs.google.com/forms/d/e/1FAIpQLSex9aBBMwl8tXfNoRXqOnsYnMhBkoL1LbYVV5LgUTAtYRFw_Q/viewform"
         className=""
       >
-        <button className="border-2 border-gray-500 p-3 rounded-full flex items-center gap-2 hover:border-[#DE9841] transition-colors duration-300 md:w-[150px] md:h-[60px] text-xl justify-center">
+        {/* <button className="border-2 border-gray-500 p-3 rounded-full flex items-center gap-2 hover:border-[#DE9841] transition-colors duration-300 md:w-[150px] md:h-[60px] text-xl justify-center">
           Register Now
-        </button>
+        </button> */}
       </Link>
 
       <div>
